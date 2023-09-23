@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'checkstyle'
+    id 'jacoco'
+    id 'com.adarshr.test-logger' version '3.2.0'
+}
+
+group = 'hexlet.code'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'hexlet.code.App'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation('org.junit.jupiter:junit-jupiter:5.9.2')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+testlogger {
+    showStandardStreams true
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+compileJava {
+    options.release = 20
+}
