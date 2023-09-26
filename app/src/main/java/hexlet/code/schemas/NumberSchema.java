@@ -1,4 +1,4 @@
-package hexlet.code.Schemes;
+package hexlet.code.schemas;
 
 import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Positive;
 import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Range;

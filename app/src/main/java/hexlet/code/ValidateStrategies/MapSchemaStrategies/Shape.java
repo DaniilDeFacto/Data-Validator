@@ -1,6 +1,6 @@
 package hexlet.code.ValidateStrategies.MapSchemaStrategies;
 
-import hexlet.code.Schemes.BaseSchema;
+import hexlet.code.schemas.BaseSchema;
 import hexlet.code.ValidateStrategies.ValidateStrategy;
 
 import java.util.Map;

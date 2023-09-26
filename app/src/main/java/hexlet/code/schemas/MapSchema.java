@@ -1,4 +1,5 @@
-package hexlet.code.Schemes;
+package hexlet.code.schemas;
+
 import hexlet.code.ValidateStrategies.MapSchemaStrategies.Required;
 import hexlet.code.ValidateStrategies.MapSchemaStrategies.Shape;
 import hexlet.code.ValidateStrategies.MapSchemaStrategies.Sizeof;

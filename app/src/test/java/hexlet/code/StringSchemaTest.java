@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.Schemes.StringSchema;
+import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
