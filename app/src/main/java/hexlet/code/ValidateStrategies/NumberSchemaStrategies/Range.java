@@ -6,9 +6,9 @@ public final class Range implements ValidateStrategy {
     private final int start;
     private final int finish;
 
-    public Range(int start, int finish) {
-        this.start = start;
-        this.finish = finish;
+    public Range(int pStart, int pFinish) {
+        this.start = pStart;
+        this.finish = pFinish;
     }
 
     @Override

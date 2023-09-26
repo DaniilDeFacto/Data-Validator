@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseSchema {
-    public final List<ValidateStrategy> strategies = new ArrayList<>();
+    private final List<ValidateStrategy> strategies = new ArrayList<>();
+
+    public final void addStrategy(ValidateStrategy strategy) {
+        this.strategies.add(strategy);
+    }
 
     public final boolean isValid(Object data) {
         if (isInvalidType(data)) {

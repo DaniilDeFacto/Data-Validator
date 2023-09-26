@@ -7,8 +7,8 @@ import java.util.Map;
 public final class Sizeof implements ValidateStrategy {
     private final int maxSize;
 
-    public Sizeof(int maxSize) {
-        this.maxSize = maxSize;
+    public Sizeof(int pMaxSize) {
+        this.maxSize = pMaxSize;
     }
 
     @Override

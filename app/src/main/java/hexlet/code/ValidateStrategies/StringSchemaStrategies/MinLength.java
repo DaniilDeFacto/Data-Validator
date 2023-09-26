@@ -5,8 +5,8 @@ import hexlet.code.ValidateStrategies.ValidateStrategy;
 public final class MinLength implements ValidateStrategy {
     private final int length;
 
-    public MinLength(int length) {
-        this.length = length;
+    public MinLength(int pLength) {
+        this.length = pLength;
     }
 
     @Override

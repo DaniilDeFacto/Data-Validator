@@ -7,16 +7,16 @@ import hexlet.code.ValidateStrategies.StringSchemaStrategies.Required;
 public final class StringSchema extends BaseSchema {
 
     public StringSchema required() {
-        this.strategies.add(new Required());
+        addStrategy(new Required());
         return this;
     }
     public StringSchema minLength(int length) {
-        this.strategies.add(new MinLength(length));
+        addStrategy(new MinLength(length));
         return this;
     }
 
     public StringSchema contains(String subString) {
-        this.strategies.add(new Contains(subString));
+        addStrategy(new Contains(subString));
         return this;
     }
 

@@ -8,8 +8,8 @@ import java.util.Map;
 public final class Shape implements ValidateStrategy {
     private final Map<String, BaseSchema> schemas;
 
-    public Shape(Map<String, BaseSchema> schemas) {
-        this.schemas = schemas;
+    public Shape(Map<String, BaseSchema> pSchemas) {
+        this.schemas = pSchemas;
     }
 
     @Override
