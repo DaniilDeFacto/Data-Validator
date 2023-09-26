@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MapSchemaTest {
+public final class MapSchemaTest {
     private Validator validator;
     private MapSchema schema;
 

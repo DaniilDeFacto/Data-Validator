@@ -4,7 +4,7 @@ import hexlet.code.ValidateStrategies.ValidateStrategy;
 
 import java.util.Map;
 
-public class Sizeof implements ValidateStrategy {
+public final class Sizeof implements ValidateStrategy {
     private final int maxSize;
 
     public Sizeof(int maxSize) {

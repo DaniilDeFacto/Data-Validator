@@ -6,7 +6,7 @@ import hexlet.code.ValidateStrategies.MapSchemaStrategies.Sizeof;
 
 import java.util.Map;
 
-public class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema {
 
     public MapSchema required() {
         this.strategies.add(new Required());

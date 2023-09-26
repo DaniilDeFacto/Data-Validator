@@ -2,7 +2,7 @@ package hexlet.code.ValidateStrategies.NumberSchemaStrategies;
 
 import hexlet.code.ValidateStrategies.ValidateStrategy;
 
-public class Range implements ValidateStrategy {
+public final class Range implements ValidateStrategy {
     private final int start;
     private final int finish;
 

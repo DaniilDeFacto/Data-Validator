@@ -2,7 +2,7 @@ package hexlet.code.ValidateStrategies.StringSchemaStrategies;
 
 import hexlet.code.ValidateStrategies.ValidateStrategy;
 
-public class Contains implements ValidateStrategy {
+public final class Contains implements ValidateStrategy {
     private final String subString;
 
     public Contains(String subString) {

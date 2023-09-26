@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class BaseSchema {
     public final List<ValidateStrategy> strategies = new ArrayList<>();
 
-    public boolean isValid(Object data) {
+    public final boolean isValid(Object data) {
         if (isInvalidType(data)) {
             return false;
         } else if (strategies.isEmpty()) {

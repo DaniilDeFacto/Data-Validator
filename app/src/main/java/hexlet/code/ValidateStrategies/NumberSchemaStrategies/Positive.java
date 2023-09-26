@@ -2,7 +2,7 @@ package hexlet.code.ValidateStrategies.NumberSchemaStrategies;
 
 import hexlet.code.ValidateStrategies.ValidateStrategy;
 
-public class Positive implements ValidateStrategy {
+public final class Positive implements ValidateStrategy {
 
     @Override
     public boolean validate(Object data) {

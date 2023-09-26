@@ -4,7 +4,7 @@ import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Positive;
 import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Range;
 import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Required;
 
-public class NumberSchema extends BaseSchema {
+public final class NumberSchema extends BaseSchema {
 
     public NumberSchema required() {
         this.strategies.add(new Required());

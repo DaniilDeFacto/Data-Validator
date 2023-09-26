@@ -4,7 +4,7 @@ import hexlet.code.ValidateStrategies.StringSchemaStrategies.Contains;
 import hexlet.code.ValidateStrategies.StringSchemaStrategies.MinLength;
 import hexlet.code.ValidateStrategies.StringSchemaStrategies.Required;
 
-public class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema {
 
     public StringSchema required() {
         this.strategies.add(new Required());
