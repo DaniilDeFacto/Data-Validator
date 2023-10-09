@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema {
-    private final List<Predicate> predicates = new ArrayList<>();
-    protected Predicate isInvalidType;
+public class BaseSchema {
+    private final List<Predicate<Object>> predicates = new ArrayList<>();
+    protected Predicate<Object> isInvalidType;
 
-    protected final void addPredicate(Predicate predicate) {
+    protected final void addPredicate(Predicate<Object> predicate) {
         this.predicates.add(predicate);
     }
 
