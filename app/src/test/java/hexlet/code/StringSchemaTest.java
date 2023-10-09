@@ -18,7 +18,7 @@ public final class StringSchemaTest {
     public void isValidSimpleTest() {
         assertThat(schema.isValid("")).isTrue();
         assertThat(schema.isValid(null)).isTrue();
-        schema = schema.required().minLength(5).contains("hex");
+        schema.required().minLength(5).contains("hex");
         assertThat(schema.isValid("hexlet")).isTrue();
     }
 

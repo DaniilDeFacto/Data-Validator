@@ -18,7 +18,7 @@ public final class NumberSchemaTest {
     @Test
     public void isValidSimpleTest() {
         assertThat(schema.isValid(null)).isTrue();
-        schema = schema.required().positive().range(2, 7);
+        schema.required().positive().range(2, 7);
         assertThat(schema.isValid(5)).isTrue();
     }
 
