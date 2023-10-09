@@ -1,26 +1,30 @@
 package hexlet.code.schemas;
 
-import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Positive;
-import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Range;
-import hexlet.code.ValidateStrategies.NumberSchemaStrategies.Required;
+import java.util.Objects;
 
 public final class NumberSchema extends BaseSchema {
 
+    public NumberSchema() {
+        isInvalidType = data -> !(data instanceof Integer) && !(data == null);
+    }
+
     public NumberSchema required() {
-        addStrategy(new Required());
+        addPredicate(Objects::nonNull);
         return this;
     }
     public NumberSchema positive() {
-        addStrategy(new Positive());
+        addPredicate(data -> {
+            Integer correctData = (Integer) data;
+            return correctData == null || correctData > 0;
+        });
         return this;
     }
 
     public NumberSchema range(int start, int finish) {
-        addStrategy(new Range(start, finish));
+        addPredicate(data -> {
+            Integer correctData = (Integer) data;
+            return correctData >= start && correctData <= finish;
+        });
         return this;
-    }
-
-    public boolean isInvalidType(Object data) {
-        return !(data instanceof Integer) && !(data == null);
     }
 }

@@ -1,29 +1,24 @@
 package hexlet.code.schemas;
 
-import hexlet.code.ValidateStrategies.ValidateStrategy;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public abstract class BaseSchema {
-    private final List<ValidateStrategy> strategies = new ArrayList<>();
+    private final List<Predicate> predicates = new ArrayList<>();
+    protected Predicate isInvalidType;
 
-    public final void addStrategy(ValidateStrategy strategy) {
-        this.strategies.add(strategy);
+    protected final void addPredicate(Predicate predicate) {
+        this.predicates.add(predicate);
     }
 
     public final boolean isValid(Object data) {
-        if (isInvalidType(data)) {
+        if (isInvalidType.test(data)) {
             return false;
-        } else if (strategies.isEmpty()) {
+        } else if (predicates.isEmpty()) {
             return true;
         } else {
-            long falseCount = strategies.stream()
-                    .filter(strategy -> !strategy.validate(data))
-                    .count();
-            return falseCount == 0;
+            return predicates.stream().allMatch(predicate -> predicate.test(data));
         }
     }
-
-    public abstract boolean isInvalidType(Object data);
 }

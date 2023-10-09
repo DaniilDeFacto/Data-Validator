@@ -1,26 +1,31 @@
 package hexlet.code.schemas;
 
-import hexlet.code.ValidateStrategies.StringSchemaStrategies.Contains;
-import hexlet.code.ValidateStrategies.StringSchemaStrategies.MinLength;
-import hexlet.code.ValidateStrategies.StringSchemaStrategies.Required;
-
 public final class StringSchema extends BaseSchema {
 
+    public StringSchema() {
+        isInvalidType = data -> !(data instanceof String) && !(data == null);
+    }
+
     public StringSchema required() {
-        addStrategy(new Required());
+        addPredicate(data -> {
+            String correctData = (String) data;
+            return data != null && !correctData.isEmpty();
+        });
         return this;
     }
     public StringSchema minLength(int length) {
-        addStrategy(new MinLength(length));
+        addPredicate(data -> {
+            String correctData = (String) data;
+            return correctData.length() >= length;
+        });
         return this;
     }
 
     public StringSchema contains(String subString) {
-        addStrategy(new Contains(subString));
+        addPredicate(data -> {
+            String correctData = (String) data;
+            return correctData.contains(subString);
+        });
         return this;
-    }
-
-    public boolean isInvalidType(Object data) {
-        return !(data instanceof String) && !(data == null);
     }
 }
