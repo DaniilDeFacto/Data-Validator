@@ -15,7 +15,7 @@ public final class StringSchemaTest {
     }
 
     @Test
-    public void isValidSimpleTest() {
+    public void complexValidationTest() {
         assertThat(schema.isValid("")).isTrue();
         assertThat(schema.isValid(null)).isTrue();
         schema.required().minLength(5).contains("hex");
@@ -34,22 +34,18 @@ public final class StringSchemaTest {
 
     @Test
     public void minLengthTest() {
-        schema.minLength(9);
-        assertThat(schema.isValid("hexlet")).isFalse();
+        schema.minLength(6);
         assertThat(schema.isValid("hexlet.io")).isTrue();
-        schema.minLength(5);
-        assertThat(schema.isValid("hexlet")).isFalse();
-        schema.minLength(10);
-        assertThat(schema.isValid("hexlet.io")).isFalse();
+        assertThat(schema.isValid("hex")).isFalse();
+        assertThat(schema.isValid("hexlet")).isTrue();
     }
 
     @Test
     public void containsTest() {
-        schema.contains("wh");
+        schema.contains("what does");
         assertThat(schema.isValid("what does the fox say")).isTrue();
-        schema.contains("what");
-        assertThat(schema.isValid("what does the fox say")).isTrue();
-        schema.contains("whatthe");
-        assertThat(schema.isValid("what does the fox say")).isFalse();
+        assertThat(schema.isValid("fox say: what does the dog say")).isTrue();
+        assertThat(schema.isValid("what is it")).isFalse();
+        assertThat(schema.isValid("does what")).isFalse();
     }
 }

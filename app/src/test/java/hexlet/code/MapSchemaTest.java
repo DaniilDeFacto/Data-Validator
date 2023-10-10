@@ -21,7 +21,7 @@ public final class MapSchemaTest {
     }
 
     @Test
-    public void isValidSimpleTest() {
+    public void complexValidationTest() {
         assertThat(schema.isValid(null)).isTrue();
         schema.required().sizeof(0);
         assertThat(schema.isValid(5)).isFalse();

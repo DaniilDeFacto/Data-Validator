@@ -16,7 +16,7 @@ public final class NumberSchemaTest {
     }
 
     @Test
-    public void isValidSimpleTest() {
+    public void complexValidationTest() {
         assertThat(schema.isValid(null)).isTrue();
         schema.required().positive().range(2, 7);
         assertThat(schema.isValid(5)).isTrue();
@@ -43,10 +43,9 @@ public final class NumberSchemaTest {
     @Test
     public void rangeTest() {
         schema.range(-38, 21);
+        assertThat(schema.isValid(10)).isTrue();
+        assertThat(schema.isValid(-38)).isTrue();
         assertThat(schema.isValid(21)).isTrue();
-        schema.range(1, 5);
-        assertThat(schema.isValid(1)).isTrue();
-        schema.range(12, 69);
-        assertThat(schema.isValid(10)).isFalse();
+        assertThat(schema.isValid(25)).isFalse();
     }
 }
