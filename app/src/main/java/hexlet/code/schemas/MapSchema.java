@@ -25,10 +25,8 @@ public final class MapSchema extends BaseSchema {
     public MapSchema shape(Map<String, BaseSchema> schemas) {
         addPredicate(data -> {
             Map<String, Object> correctData = (Map<String, Object>) data;
-            long falseCount = correctData.keySet().stream()
-                    .filter(key -> !schemas.get(key).isValid(correctData.get(key)))
-                    .count();
-            return falseCount == 0;
+            return correctData.keySet().stream()
+                    .allMatch(key -> schemas.get(key).isValid(correctData.get(key)));
         });
         return this;
     }
