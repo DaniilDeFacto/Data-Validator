@@ -47,5 +47,6 @@ public final class NumberSchemaTest {
         assertThat(schema.isValid(-38)).isTrue();
         assertThat(schema.isValid(21)).isTrue();
         assertThat(schema.isValid(25)).isFalse();
+        assertThat(schema.isValid(null)).isTrue();
     }
 }

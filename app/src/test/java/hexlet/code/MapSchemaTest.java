@@ -48,6 +48,7 @@ public final class MapSchemaTest {
         assertThat(schema.isValid(data)).isTrue();
         data.put("key3", "value3");
         assertThat(schema.isValid(data)).isFalse();
+        assertThat(schema.isValid(null)).isTrue();
     }
 
     @Test
@@ -72,5 +73,6 @@ public final class MapSchemaTest {
         human4.put("name", "Valya");
         human4.put("age", -5);
         assertThat(schema.isValid(human4)).isFalse();
+        assertThat(schema.isValid(null)).isTrue();
     }
 }

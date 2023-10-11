@@ -1,17 +1,16 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
-
 public final class NumberSchema extends BaseSchema {
 
     public NumberSchema() {
-        isInvalidType = data -> !(data instanceof Integer) && !(data == null);
+        addPredicate(data -> data instanceof Integer || data == null);
     }
 
     public NumberSchema required() {
-        addPredicate(Objects::nonNull);
+        super.required();
         return this;
     }
+
     public NumberSchema positive() {
         addPredicate(data -> {
             Integer correctData = (Integer) data;
@@ -23,7 +22,7 @@ public final class NumberSchema extends BaseSchema {
     public NumberSchema range(int start, int finish) {
         addPredicate(data -> {
             Integer correctData = (Integer) data;
-            return correctData >= start && correctData <= finish;
+            return correctData == null || (correctData >= start && correctData <= finish);
         });
         return this;
     }

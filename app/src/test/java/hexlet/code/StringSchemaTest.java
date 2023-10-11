@@ -38,6 +38,7 @@ public final class StringSchemaTest {
         assertThat(schema.isValid("hexlet.io")).isTrue();
         assertThat(schema.isValid("hex")).isFalse();
         assertThat(schema.isValid("hexlet")).isTrue();
+        assertThat(schema.isValid(null)).isTrue();
     }
 
     @Test
@@ -47,5 +48,6 @@ public final class StringSchemaTest {
         assertThat(schema.isValid("fox say: what does the dog say")).isTrue();
         assertThat(schema.isValid("what is it")).isFalse();
         assertThat(schema.isValid("does what")).isFalse();
+        assertThat(schema.isValid(null)).isTrue();
     }
 }

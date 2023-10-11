@@ -1,23 +1,22 @@
 package hexlet.code.schemas;
 
 import java.util.Map;
-import java.util.Objects;
 
 public final class MapSchema extends BaseSchema {
 
     public MapSchema() {
-        isInvalidType = data -> !(data instanceof Map<?, ?>) && !(data == null);
+        addPredicate(data -> data instanceof Map<?, ?> || data == null);
     }
 
     public MapSchema required() {
-        addPredicate(Objects::nonNull);
+        super.required();
         return this;
     }
 
     public MapSchema sizeof(int maxSize) {
         addPredicate(data -> {
             Map<Object, Object> correctData = (Map<Object, Object>) data;
-            return correctData.size() == maxSize;
+            return correctData == null || correctData.size() == maxSize;
         });
         return this;
     }
@@ -25,7 +24,7 @@ public final class MapSchema extends BaseSchema {
     public MapSchema shape(Map<String, BaseSchema> schemas) {
         addPredicate(data -> {
             Map<String, Object> correctData = (Map<String, Object>) data;
-            return correctData.keySet().stream()
+            return correctData == null || correctData.keySet().stream()
                     .allMatch(key -> schemas.get(key).isValid(correctData.get(key)));
         });
         return this;
