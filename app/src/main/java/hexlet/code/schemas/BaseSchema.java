@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class BaseSchema {
+public abstract class BaseSchema {
     private final List<Predicate<Object>> predicates = new ArrayList<>();
 
     protected final void addPredicate(Predicate<Object> predicate) {
