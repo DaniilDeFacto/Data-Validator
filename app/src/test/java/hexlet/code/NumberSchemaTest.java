@@ -20,6 +20,8 @@ public final class NumberSchemaTest {
         assertThat(schema.isValid(null)).isTrue();
         schema.required().positive().range(2, 7);
         assertThat(schema.isValid(5)).isTrue();
+        assertThat(schema.isValid(-5)).isFalse();
+        assertThat(schema.isValid(8)).isFalse();
     }
 
     @Test

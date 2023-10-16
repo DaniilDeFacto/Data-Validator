@@ -20,6 +20,8 @@ public final class StringSchemaTest {
         assertThat(schema.isValid(null)).isTrue();
         schema.required().minLength(5).contains("hex");
         assertThat(schema.isValid("hexlet")).isTrue();
+        assertThat(schema.isValid("hex")).isFalse();
+        assertThat(schema.isValid("telxeh")).isFalse();
     }
 
     @Test

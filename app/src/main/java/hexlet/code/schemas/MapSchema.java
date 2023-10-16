@@ -13,10 +13,10 @@ public final class MapSchema extends BaseSchema {
         return this;
     }
 
-    public MapSchema sizeof(int maxSize) {
+    public MapSchema sizeof(int size) {
         addPredicate(data -> {
             Map<Object, Object> correctData = (Map<Object, Object>) data;
-            return correctData == null || correctData.size() == maxSize;
+            return correctData == null || correctData.size() == size;
         });
         return this;
     }

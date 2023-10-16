@@ -24,8 +24,9 @@ public final class MapSchemaTest {
     public void complexValidationTest() {
         assertThat(schema.isValid(null)).isTrue();
         schema.required().sizeof(0);
-        assertThat(schema.isValid(5)).isFalse();
         assertThat(schema.isValid(new HashMap<>())).isTrue();
+        assertThat(schema.isValid(5)).isFalse();
+        assertThat(schema.isValid(Map.of("key1", "value1"))).isFalse();
     }
 
     @Test
